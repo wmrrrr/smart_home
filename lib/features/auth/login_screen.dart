@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Navigator.pop(ctx);
               final state = cubit.state;
               if (state is AuthAuthenticated && context.mounted) {
-                context.go('/home');
+                context.go('/labs');
               }
             },
             child: const Text('Так'),
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(final BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (ctx, state) {
-        if (state is AuthAuthenticated) ctx.go('/home');
+        if (state is AuthAuthenticated) ctx.go('/labs');
       },
       builder: (ctx, state) {
         final theme = Theme.of(ctx);
